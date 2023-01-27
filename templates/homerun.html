@@ -4,7 +4,9 @@
 
     <div class="output1" name="responses">
         <h1>Your Message here</h1>
-        <p>{{ message }}</p>
+        {% if message %}
+        <p>{{message}}</p>
+        {% endif %}
     </div>
 
 

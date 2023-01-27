@@ -2,14 +2,14 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/", methods = ["POST", "GET"])
+@app.route("/", methods = ["GET"])
 def hello_world():
     if request.method == "GET":
         return render_template('index.html')
-    else:
-        message = request.form.get("text1")
-        return render_template('homerun.html')
 
-@app.route('/homerun', methods = ["GET"])
+@app.route('/homerun', methods = ["POST"])
 def homerun():
-    return render_template("homerun.html")
+    this_message = request.form.get("text1")
+    print(this_message)
+    return render_template('homerun.html', message = this_message)
+    
